@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nike Catalog</title>
+  <style>
+    body{font-family: Arial; background:#fff;padding:2rem}
+    header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:1rem}
+    .card{border:1px solid #eee;padding:1rem;border-radius:8px}
+    .price{font-weight:bold;margin-top:0.5rem}
+    a.logout{font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <header>
+    <div>Welcome <b th:text="${username}">User</b></div>
+    <div><a class="logout" th:href="@{/logout}">Logout</a></div>
+  </header>
+
+  <h3>Popular Shoes</h3>
+  <div class="grid">
+    <div class="card" th:each="shoe: ${shoes}">
+      <div th:text="${shoe.name}">Shoe name</div>
+      <div class="price" th:text="${shoe.price}">Price</div>
+    </div>
+  </div>
+</body>
+</html>

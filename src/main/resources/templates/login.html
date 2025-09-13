@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Nike Login</title>
+  <style>
+    body{font-family: Arial; display:flex; align-items:center; justify-content:center; height:100vh; background:#f5f5f5}
+    .card{background:white;padding:2rem;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,0.1); width:320px}
+    input{width:100%;padding:8px;margin:6px 0}
+    button{width:100%;padding:8px;margin-top:8px;background:#111;color:white;border:none;border-radius:4px}
+    .error{color:red;font-size:0.9rem}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Login - Nike Demo</h2>
+    <form th:action="@{/login}" method="post">
+      <input type="text" name="username" placeholder="username" required />
+      <input type="password" name="password" placeholder="password" required />
+      <button type="submit">Login</button>
+    </form>
+    <div th:if="${error}" class="error">Invalid credentials. Try admin/admin123 or user/user123</div>
+  </div>
+</body>
+</html>
